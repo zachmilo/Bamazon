@@ -28,6 +28,7 @@ promptUser({type:"input",
                         }, function(error, result) {
 
                             if(error) throw error;
+                            con.end();
                             if(result.length > 0 && numOf.numberOf) {
                                 inStock = result[0].stock_quantity;
                                 price = result[0].price;
@@ -38,6 +39,7 @@ promptUser({type:"input",
                                     values:[newTotal, product.whatProduct]
                                 }, function(error, result) {
                                     if(error) throw error;
+                                    con.end()
                                     console.log("The order was placed, your total is $"+ numOf.numberOf * price);
                                 });
                             }
@@ -54,6 +56,7 @@ promptUser({type:"input",
                                                         values:[0, product.whatProduct]
                                                     }, function(error, results) {
                                                         if(error) throw error;
+                                                        con.end();
                                                         console.log("The order was placed, your total is $"+ numOf.numberOf * price);
 
                                                     });
